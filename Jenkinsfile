@@ -1,10 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage ("test"){
+        stage ("vcs"){
             steps {
-                echo "helloworld"
+                git url: "https://github.com/Moez786/spring-petclinic.git",
+                branch: "REL1"
             }
         }
+         stage ("build") {
+            agent {label OPENJDK11-MVN3.6}
+            steps {
+                sh "/usr/share/maven mvn package"
+            }
+         }
     }
 }
