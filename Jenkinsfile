@@ -8,7 +8,7 @@ pipeline {
             }
         }
          stage ("build") {
-            agent {label OPENJDK11-MVN3.6}
+            agent {label "OPENJDK11-MVN3.6"}
             steps {
                 sh "/usr/share/maven mvn package"
             }
