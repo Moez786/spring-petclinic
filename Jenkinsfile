@@ -13,5 +13,11 @@ pipeline {
                 sh "/usr/share/maven/bin/mvn package"
             }
          }
+         stage ("Junit") {
+            agent {label "OPENJDK11-MVN3.6"}
+            steps {
+                junit "**/surefire-reports/*.xml"
+            }
+         }
     }
 }
