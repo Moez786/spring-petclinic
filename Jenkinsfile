@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    parameters { choice(name: 'BRANCH_TO_BUILD', choices: ['main', 'REL1'], description: 'Branch options to build'),
+    parameters { choice(name: 'BRANCH_TO_BUILD', choices: ['main', 'REL1'], description: 'Branch options to build')
                 string(name: 'MAVEN_GOAL', defaultValue: 'package', description: 'Maven goal to do') }
     triggers { pollSCM("* * * * *") }
     stages {
